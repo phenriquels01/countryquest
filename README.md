@@ -19,7 +19,7 @@ Test your geography knowledge in this addictive quiz game! CountryQuest challeng
 - 📊 High difficulty
 - ⏱️ Score tracking system
 
-## 🛠️ Technical Stack
+## 🛠️ Technologies Used
 
 | Component              | Technology                          |
 |------------------------|-------------------------------------|
