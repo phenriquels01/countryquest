@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 🌎 CountryQuest</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body id="app" data-was-correct="<%= locals.wasCorrect %>">
+
+  <!-- Instructions Pop-up -->
+  <div id="popup">
+    <div class="popup-content">
+      <h2>Welcome to CountryQuest!</h2>
+      <p>Instructions:</p>
+      <p>Your challenge is to guess the name of the country by seeing its flag and capital. Good luck!</p>
+      <button id="closePopupBtn">Close</button>
+    </div>
+  </div>
+
+  <!--Game Over Pop-up -->
+  <div id="gameOverPopup" style="display: none;">
+    <div class="popup-content">
+      <h2>Game Over!</h2>
+      <p>Final best score: <%= locals.totalScore %></p>
+      <button id="tryAgainBtn">Try Again</button>
+    </div>
+  </div>
+
+  <form class="container" action="/submit" method="post">
+    <div class="horizontal-container">
+      <h3>
+        Total Score:
+        <span id="score">
+          <%= locals.totalScore ? totalScore : "0" %>
+        </span>
+      </h3>
+    </div>
+
+    <!-- FLAG -->
+    <h1 id="flag">
+      <%= question.flag %>
+    </h1>
+
+    <!-- CAPITAL -->
+    <h2 id="capital">
+      <%= question.capital %>
+    </h2>
+
+    <div class="answer-container">
+      <input type="text" name="answer" id="userInput" placeholder="Enter the country name" autofocus autocomplete="off" required>
+    </div>
+    <button type="submit">
+      SUBMIT
+      <% if (locals.wasCorrect === false) { %>
+        <span class="cross" id="error">✖</span>
+      <% } else if (locals.wasCorrect) { %>
+        <span class="checkmark">✔</span>
+      <% } %>
+    </button>
+    <%- include('partials/footer.ejs'); -%>
+  </form>
+  <script src="/js/scripts.js"></script>
+</body>
+
+</html>
