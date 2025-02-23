@@ -8,7 +8,6 @@ Test your geography knowledge in this addictive quiz game! CountryQuest challeng
 
 - Full-stack Node.js/Express application
 - PostgreSQL database integration
-- CSV data import system
 - Interactive quiz interface
 - Responsive CSS design
 
@@ -24,7 +23,8 @@ Test your geography knowledge in this addictive quiz game! CountryQuest challeng
 | Component              | Technology                          |
 |------------------------|-------------------------------------|
 | **Backend Framework**  | Node.js + Express.js                |
-| **Data Management**    | CSV file + csv-parser               |
+| **Database**           | PostgreSQL                          |
+| **Initial Data Import**| CSV file + csv-parser               |
 | **Templating**         | EJS                                 |
 | **Styling**            | CSS3 + Grid/Animations              |
 
@@ -73,7 +73,7 @@ psql -U postgres -d world -f queries.sql
 **Important Notes:**
 - Ensure CSV file is in the `root` directory
 - Verify PostgreSQL user has file read permissions
-- For custom data paths, modify the script accordingly
+- The queries.sql file contains the database schema and seed data for initial setup. If using a custom data path, update the script accordingly.
 
 ### 4. Install Dependencies
 
@@ -100,4 +100,6 @@ or
 
 ```bash
 node index.js
+```
 
+Once the server is running, open your browser and go to: *http://localhost:3000*
